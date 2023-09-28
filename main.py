@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import request
-import docker
 import os
-import paramiko
 from flask import jsonify
 
 

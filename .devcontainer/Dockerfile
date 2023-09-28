@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.10.13
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -8,11 +8,11 @@ ENV FLASK_ENV=development
 ENV FLASK_DEBUG=1
 
 COPY . .
+COPY .. .
 
-RUN /usr/local/bin/python -m pip install --upgrade pip
-RUN pip install --no-cache-dir --trusted-host pypi.python.org -r ./requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-#CMD touch test.json
 ENTRYPOINT [ "python3" ]
-CMD [ "./python/main.py"]
+CMD [ "./main.py"]
 
